@@ -25,7 +25,8 @@ class _HomeState extends State<Home> {
         padding: const EdgeInsets.all(20),
 
         child: ListView.builder(
-          itemCount: 10,
+
+          itemCount: _itens.length,
 
           itemBuilder: (context, indice) {
 
