@@ -43,7 +43,7 @@ class _HomeState extends State<Home> {
 
         child: ListView.builder(
 
-          itemCount: _itens.length,
+          itemCount: _itens.length
 
           itemBuilder: (context, indice) {
 
