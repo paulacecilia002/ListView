@@ -9,13 +9,30 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  List _itens =[];
-  void _carregarItens(){
+  List _itens = [];
 
+  @override
+  void initState() {
+    super.initState();
+    _carregarItens();
+  }
+
+  void _carregarItens() {
+
+    for (int i = 0; i <= 10; i++) {
+
+      Map<String, dynamic> item = {};
+
+      item["titulo"] = "Título $i Lorem ipsum dolor sit amet.";
+      item["descricao"] = "Descrição $i ipsum dolor sit amet.";
+
+      _itens.add(item);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Lista"),
@@ -30,11 +47,13 @@ class _HomeState extends State<Home> {
 
           itemBuilder: (context, indice) {
 
-            print("item $indice");
+            Map<String, dynamic> item = _itens[indice];
+
+            print("item ${item["titulo"]}");
 
             return ListTile(
-              title: Text("Item $indice"),
-              subtitle: Text ("subtitulo"),
+              title: Text(item["titulo"]),
+              subtitle: Text(item["descricao"]),
             );
           },
         ),
